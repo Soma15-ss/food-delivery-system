@@ -13,8 +13,6 @@ export const CartProvider = ({ children }) => {
 
   const addToCart = (item) => {
     setCartItems(prevCart => {
-      console.log('item :>> ', item);
-      console.log('prevCart :>> ', prevCart);
       const index = prevCart.findIndex(cartItem => cartItem._id === item._id);
 
       if (index > -1) {

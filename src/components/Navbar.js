@@ -7,7 +7,6 @@ import {
   Menu,
   MenuItem,
   Typography,
-  Avatar,
   Box,
   Tooltip,
   useMediaQuery,
@@ -19,13 +18,13 @@ import {
 import {
   Logout,
   Login,
-  ShoppingCart,
   History,
   AccountCircle,
   Menu as MenuIcon
 } from '@mui/icons-material'
 import { useDispatch } from 'react-redux'
 import { useCart } from '../context/CartContext'
+import { Assignment } from '@mui/icons-material'; // You can choose either
 
 const Navbar = () => {
   const dispatch = useDispatch()
@@ -86,7 +85,7 @@ const Navbar = () => {
               >
                 <MenuItem component={Link} to="/orders" onClick={handleMenuClose}>
                   <Badge badgeContent={cartCount} color="error" sx={{ mr: 2 }}>
-                    <ShoppingCart fontSize="small" />
+                  <Assignment fontSize="small" />
                   </Badge>
                   <Typography variant="body2">Order Summary</Typography>
                 </MenuItem>
@@ -101,7 +100,7 @@ const Navbar = () => {
               <Tooltip title="Order Summary">
                 <IconButton component={Link} to="/orders" color="inherit">
                   <Badge badgeContent={cartCount} color="error">
-                    <ShoppingCart />
+                  <Assignment />
                   </Badge>
                 </IconButton>
               </Tooltip>

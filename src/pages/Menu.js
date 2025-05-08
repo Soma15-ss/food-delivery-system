@@ -130,8 +130,7 @@ const Menu = () => {
     }
     
     addToCart(currentCart)
-    console.log('currentCart:', currentCart);
-    // ✅ Store updated cart in localStorage
+    toast.success("Item added to Orders")
     localStorage.setItem('cart', JSON.stringify(currentCart));
   };
   
