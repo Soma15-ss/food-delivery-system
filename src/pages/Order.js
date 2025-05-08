@@ -35,8 +35,6 @@ const Orders = () => {
   // Function to handle quantity change
   const handleQuantityChange = (id, change) => {
     const updatedOrders = orders.map(order => {
-      console.log('order._id :>> ', order._id);
-      console.log('id :>> ', id);
       if (order._id === id) {
         const newQuantity = order.quantity + change
         if (newQuantity > 0) {
@@ -69,6 +67,11 @@ const Orders = () => {
     }
   }
 
+  const handleClearCart = () => {
+    localStorage.removeItem('cart');
+    setOrders([])
+  }
+
   // Calculate total cart value
   const calculateTotal = () => {
     return orders.reduce((acc, order) => acc + order.price * order.quantity, 0)
@@ -87,7 +90,7 @@ const Orders = () => {
       </Typography>
 
       <Grid container spacing={4} justifyContent="center">
-        {orders.length > 0 ? (
+        {orders?.length > 0 ? (
           orders?.map(order => (
             <Grid item xs={12} sm={6} md={4} key={order._id}>
               <Card
@@ -177,6 +180,15 @@ const Orders = () => {
             >
               Place Order
             </LoadingButton>
+            <LoadingButton
+              variant='contained'
+              color='primary'
+              sx={{ mt: 2 }}
+              onClick={handleClearCart}
+              loading={isSubmitting}
+            >
+              Clear Cart
+            </LoadingButton>
         </Box>
         </Box>
       )}
@@ -187,7 +199,7 @@ const Orders = () => {
               sx={{ mt: 2 }}
               onClick={() => navigate('/')}
             >
-              Continue Shopping
+              Browse More Menus
             </Button>
           </Box>
     </Container>
