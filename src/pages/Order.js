@@ -185,7 +185,6 @@ const Orders = () => {
               color='primary'
               sx={{ mt: 2 }}
               onClick={handleClearCart}
-              loading={isSubmitting}
             >
               Clear Cart
             </LoadingButton>

@@ -9,7 +9,6 @@ import Login from './pages/Login'
 import Register from './pages/Register'
 import Menu from './pages/Menu'
 import Orders from './pages/Order'
-import AdminPanel from './pages/AdminPanel'
 import OrderHistory from './pages/OrderHistory'
 import PrivateRoute from './role/PrivateRoute'
 import PublicRoute from './role/PublicRoute'
@@ -55,19 +54,7 @@ function App () {
               path='/history'
               element={
                 <PrivateRoute roles={['user', 'admin', 'manager']}>
-                  {/* <DashboardLayout> */}
                   <OrderHistory />
-                  {/* </DashboardLayout> */}
-                </PrivateRoute>
-              }
-            />
-            <Route
-              path='/admin'
-              element={
-                <PrivateRoute roles={['admin']}>
-                  {/* <DashboardLayout> */}
-                  <AdminPanel />
-                  {/* </DashboardLayout> */}
                 </PrivateRoute>
               }
             />
